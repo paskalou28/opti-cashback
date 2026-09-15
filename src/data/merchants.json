@@ -1,82 +1,85 @@
 [
   {
-    "id": "1",
+    "id": "carrefour",
     "name": "Carrefour",
-    "category": "Supermarché",
-    "bestOption": "Bon d'achat",
-    "rate": "3,5%",
-    "platform": "eBuyClub",
-    "referralUrl": "https://www.ebuyclub.com",
-    "welcomeBonus": "5 € offerts"
+    "category": "Alimentation & Courses",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "bon_achat",
+        "label": "Bon d'achat en caisse / drive",
+        "rate": 4.5,
+        "unit": "%"
+      },
+      {
+        "platform": "BoursoBank",
+        "type": "the_corner",
+        "label": "The Corner (Achat de bon)",
+        "rate": 5.0,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback en ligne",
+        "rate": 2.0,
+        "unit": "%"
+      }
+    ],
+    "stackable": true,
+    "tip": "Cumule le bon d'achat BoursoBank ou eBuyClub avec ton cashback sur le drive Carrefour !"
   },
   {
-    "id": "2",
-    "name": "Auchan",
-    "category": "Supermarché",
-    "bestOption": "Bon d'achat",
-    "rate": "3%",
-    "platform": "Joko",
-    "referralUrl": "https://joko.app.link",
-    "welcomeBonus": "3 € offerts"
+    "id": "fnac",
+    "name": "Fnac",
+    "category": "High-Tech & Culture",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "bon_achat",
+        "label": "Carte cadeau remisée",
+        "rate": 5.0,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3.0,
+        "unit": "%"
+      },
+      {
+        "platform": "Poulpeo",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3.5,
+        "unit": "%"
+      }
+    ],
+    "stackable": true,
+    "tip": "Paye tes achats en ligne Fnac avec une carte cadeau eBuyClub achetée au préalable pour cumuler les réductions."
   },
   {
-    "id": "3",
-    "name": "Fnac / Darty",
-    "category": "High-Tech",
-    "bestOption": "Cashback Web",
-    "rate": "5%",
-    "platform": "iGraal",
-    "referralUrl": "https://fr.igraal.com",
-    "welcomeBonus": "3 € offerts"
-  },
-  {
-    "id": "4",
-    "name": "Boulanger",
-    "category": "High-Tech",
-    "bestOption": "Bon d'achat",
-    "rate": "4%",
-    "platform": "eBuyClub",
-    "referralUrl": "https://www.ebuyclub.com",
-    "welcomeBonus": "5 € offerts"
-  },
-  {
-    "id": "5",
-    "name": "TotalEnergies",
-    "category": "Carburant",
-    "bestOption": "Carte cadeau",
-    "rate": "2%",
-    "platform": "Joko",
-    "referralUrl": "https://joko.app.link",
-    "welcomeBonus": "3 € offerts"
-  },
-  {
-    "id": "6",
-    "name": "Leroy Merlin",
-    "category": "Bricolage",
-    "bestOption": "Bon d'achat",
-    "rate": "2,5%",
-    "platform": "eBuyClub",
-    "referralUrl": "https://www.ebuyclub.com",
-    "welcomeBonus": "5 € offerts"
-  },
-  {
-    "id": "7",
-    "name": "Booking.com",
-    "category": "Voyage",
-    "bestOption": "Cashback Web",
-    "rate": "4%",
-    "platform": "iGraal",
-    "referralUrl": "https://fr.igraal.com",
-    "welcomeBonus": "3 € offerts"
-  },
-  {
-    "id": "8",
-    "name": "BoursoBank",
-    "category": "Banque",
-    "bestOption": "Prime Parrainage",
-    "rate": "Jusqu'à 150 €",
-    "platform": "BoursoBank",
-    "referralUrl": "https://www.boursobank.com",
-    "welcomeBonus": "80 € à 150 € offerts"
+    "id": "decathlon",
+    "name": "Decathlon",
+    "category": "Sport",
+    "offers": [
+      {
+        "platform": "Widilo",
+        "type": "cashback",
+        "label": "Cashback en ligne",
+        "rate": 4.0,
+        "unit": "%"
+      },
+      {
+        "platform": "eBuyClub",
+        "type": "bon_achat",
+        "label": "Bon d'achat",
+        "rate": 3.5,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
   }
 ]
