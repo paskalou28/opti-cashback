@@ -1,30 +1,38 @@
 {
   "eBuyClub": {
-    "url": "https://www.ebuyclub.com/inscription?parrain=Pascalnovelli",
-    "code": "Pascalnovelli"
+    "name": "eBuyClub",
+    "refUrl": "https://www.ebuyclub.com/?parrain=Pascalnovelli",
+    "directUrl": "https://www.ebuyclub.com",
+    "bonus": "+5 € offerts"
   },
   "iGraal": {
-    "url": "https://fr.igraal.com/parrainage?parrain=pnovelli13&utm_medium=raf&utm_source=refer_friend",
-    "code": "pnovelli13"
+    "name": "iGraal",
+    "refUrl": "https://fr.igraal.com/?parrain=pnovelli13",
+    "directUrl": "https://fr.igraal.com",
+    "bonus": "+3 € offerts"
   },
   "Joko": {
-    "url": "https://hellojoko.app.link/tyX38HoTyP",
-    "code": "fvlclz"
-  },
-  "Poulpeo": {
-    "url": "https://www.poulpeo.com/inscription/parrainage?sponsor_key=7YYsab",
-    "code": "7YYsab"
+    "name": "Joko",
+    "refUrl": "https://www.joko.com",
+    "directUrl": "https://www.joko.com",
+    "bonus": "+3 € offerts"
   },
   "Widilo": {
-    "url": "https://www.widilo.fr/i/PASKALOU",
-    "code": "PASKALOU"
+    "name": "Widilo",
+    "refUrl": "https://www.widilo.fr/i/fvlclz",
+    "directUrl": "https://www.widilo.fr",
+    "bonus": "+3 € offerts"
   },
-  "Naomi": {
-    "url": "http://onelink.to/c82h4h",
-    "code": "9FR04O"
+  "Poulpeo": {
+    "name": "Poulpeo",
+    "refUrl": "https://www.poulpeo.com",
+    "directUrl": "https://www.poulpeo.com",
+    "bonus": "+3 € offerts"
   },
   "BoursoBank": {
-    "url": "https://bour.so/p/SORKrw1VXYT",
-    "code": "SORKrw1VXYT"
+    "name": "BoursoBank",
+    "refUrl": "https://www.boursorama.com",
+    "directUrl": "https://www.boursorama.com",
+    "bonus": "The Corner"
   }
 }

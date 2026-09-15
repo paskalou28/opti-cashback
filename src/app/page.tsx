@@ -30,13 +30,26 @@ export default function HomePage() {
   // Liste unique des catégories pour les filtres
   const categories = ['Tous', ...Array.from(new Set(merchants.map((m) => m.category)))];
 
-  // Récupération de l'URL de redirection
-  const getPlatformUrl = (platformName: string) => {
-    const platforms = platformsData as Record<string, { url?: string; refUrl?: string }>;
+  // Récupération des infos de la plateforme (liens + bonus)
+  const getPlatformInfo = (platformName: string) => {
+    const platforms = platformsData as Record<
+      string,
+      { refUrl?: string; directUrl?: string; url?: string; bonus?: string }
+    >;
     const key = Object.keys(platforms).find(
       (k) => k.toLowerCase() === platformName.toLowerCase()
     );
-    return key ? (platforms[key].url || platforms[key].refUrl || '#') : '#';
+
+    if (!key) {
+      return { refUrl: '#', directUrl: '#', bonus: '' };
+    }
+
+    const p = platforms[key];
+    return {
+      refUrl: p.refUrl || p.url || '#',
+      directUrl: p.directUrl || p.url || '#',
+      bonus: p.bonus || ''
+    };
   };
 
   // Filtrage combiné recherche + catégorie
@@ -90,7 +103,6 @@ export default function HomePage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredMerchants.map((merchant) => {
           const sortedOffers = [...(merchant.offers || [])].sort((a, b) => b.rate - a.rate);
-          const topOffer = sortedOffers[0];
 
           return (
             <div
@@ -113,37 +125,51 @@ export default function HomePage() {
                   </div>
                 )}
 
-                {/* Liste détaillée des offres disponibles */}
-                <div className="space-y-2 mb-6">
-                  {sortedOffers.map((offer, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center justify-between text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-100"
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-slate-700">{offer.platform}</span>
-                        <span className="text-slate-400">•</span>
-                        <span className="text-slate-500">{offer.label}</span>
+                {/* Liste des offres avec double bouton d'action */}
+                <div className="space-y-3 mb-2">
+                  {sortedOffers.map((offer, idx) => {
+                    const pInfo = getPlatformInfo(offer.platform);
+
+                    return (
+                      <div
+                        key={idx}
+                        className="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100 gap-2"
+                      >
+                        <div>
+                          <div className="flex items-center gap-1.5">
+                            <span className="font-semibold text-slate-800">{offer.platform}</span>
+                            <span className="text-slate-400">•</span>
+                            <span className="text-slate-500 text-xs">{offer.label}</span>
+                          </div>
+                          <span className="font-extrabold text-blue-600 text-sm">
+                            {offer.rate}{offer.unit}
+                          </span>
+                        </div>
+
+                        {/* Choix utilisateur : Déjà membre VS Créer un compte */}
+                        <div className="flex items-center gap-2 text-xs">
+                          <a
+                            href={pInfo.directUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-2.5 py-1.5 rounded-lg font-medium transition text-center flex-1 sm:flex-none"
+                          >
+                            J'ai un compte
+                          </a>
+                          <a
+                            href={pInfo.refUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-3 py-1.5 rounded-lg transition text-center flex-1 sm:flex-none whitespace-nowrap"
+                          >
+                            Créer compte {pInfo.bonus ? `(${pInfo.bonus})` : ''}
+                          </a>
+                        </div>
                       </div>
-                      <span className="font-extrabold text-blue-600">
-                        {offer.rate}{offer.unit}
-                      </span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
-
-              {/* Bouton d'activation direct */}
-              {topOffer && (
-                <a
-                  href={getPlatformUrl(topOffer.platform)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-xl text-xs text-center block transition"
-                >
-                  Activer l'offre chez {topOffer.platform}
-                </a>
-              )}
             </div>
           );
         })}
