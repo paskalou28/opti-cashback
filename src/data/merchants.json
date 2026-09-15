@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Carrefour",
+    "category": "Supermarché",
+    "bestOption": "Bon d'achat",
+    "rate": "3,5%",
+    "platform": "eBuyClub",
+    "referralUrl": "https://www.ebuyclub.com",
+    "welcomeBonus": "5 € offerts"
+  },
+  {
+    "id": "2",
+    "name": "Fnac",
+    "category": "High-Tech",
+    "bestOption": "Cashback Web",
+    "rate": "6%",
+    "platform": "iGraal",
+    "referralUrl": "https://fr.igraal.com",
+    "welcomeBonus": "3 € offerts"
+  }
+]
