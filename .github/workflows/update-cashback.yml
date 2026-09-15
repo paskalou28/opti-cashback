@@ -2,9 +2,8 @@ name: Auto Update Cashback Rates
 
 on:
   schedule:
-    # S'exécute automatiquement tous les jours à 3h du matin UTC
     - cron: '0 3 * * *'
-  workflow_dispatch: # Permet de lancer le robot manuellement depuis GitHub
+  workflow_dispatch:
 
 jobs:
   scrape-and-commit:
@@ -19,10 +18,12 @@ jobs:
       - name: Installation de Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Installation des dépendances
-        run: npm install cheerio
+        run: |
+          npm init -y
+          npm install cheerio
 
       - name: Exécution du scraper
         run: node scripts/scrape.js
