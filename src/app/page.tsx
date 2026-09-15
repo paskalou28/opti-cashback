@@ -27,10 +27,10 @@ export default function HomePage() {
 
   const merchants = merchantsData as Merchant[];
 
-  // Liste unique des catégories
+  // Liste unique des catégories pour les filtres
   const categories = ['Tous', ...Array.from(new Set(merchants.map((m) => m.category)))];
 
-  // Lien de parrainage
+  // Récupération de l'URL de redirection
   const getPlatformUrl = (platformName: string) => {
     const platforms = platformsData as Record<string, { url?: string; refUrl?: string }>;
     const key = Object.keys(platforms).find(
@@ -39,16 +39,7 @@ export default function HomePage() {
     return key ? (platforms[key].url || platforms[key].refUrl || '#') : '#';
   };
 
-  // Code parrain
-  const getPlatformCode = (platformName: string) => {
-    const platforms = platformsData as Record<string, { code?: string }>;
-    const key = Object.keys(platforms).find(
-      (k) => k.toLowerCase() === platformName.toLowerCase()
-    );
-    return key ? platforms[key].code : null;
-  };
-
-  // Filtre recherche + catégorie
+  // Filtrage combiné recherche + catégorie
   const filteredMerchants = merchants.filter((m) => {
     const matchesSearch = m.name.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = selectedCategory === 'Tous' || m.category === selectedCategory;
@@ -95,12 +86,11 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Grille des marchands */}
+      {/* Grille des enseignes */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredMerchants.map((merchant) => {
           const sortedOffers = [...(merchant.offers || [])].sort((a, b) => b.rate - a.rate);
           const topOffer = sortedOffers[0];
-          const topCode = topOffer ? getPlatformCode(topOffer.platform) : null;
 
           return (
             <div
@@ -108,7 +98,7 @@ export default function HomePage() {
               className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between"
             >
               <div>
-                {/* Nom et Categorie */}
+                {/* En-tête de la carte */}
                 <div className="flex items-center justify-between mb-3">
                   <h2 className="text-xl font-bold text-slate-800">{merchant.name}</h2>
                   <span className="bg-slate-100 text-slate-600 text-xs px-2.5 py-1 rounded-full font-medium">
@@ -116,15 +106,15 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                {/* Astuce Cumul */}
+                {/* Encadré d'astuce de cumul */}
                 {merchant.stackable && merchant.tip && (
                   <div className="mb-4 bg-amber-50 border-l-4 border-amber-400 p-2.5 text-xs text-amber-900 rounded-r-lg">
                     <strong>💡 Astuce :</strong> {merchant.tip}
                   </div>
                 )}
 
-                {/* Liste de toutes les offres */}
-                <div className="space-y-2 mb-4">
+                {/* Liste détaillée des offres disponibles */}
+                <div className="space-y-2 mb-6">
                   {sortedOffers.map((offer, idx) => (
                     <div
                       key={idx}
@@ -141,19 +131,9 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
-
-                {/* Code parrain */}
-                {topCode && (
-                  <p className="text-xs text-slate-500 mb-4">
-                    Code parrain :{' '}
-                    <code className="bg-slate-100 font-mono px-1.5 py-0.5 rounded text-slate-800 font-bold">
-                      {topCode}
-                    </code>
-                  </p>
-                )}
               </div>
 
-              {/* Bouton d'activation vers la meilleure plateforme */}
+              {/* Bouton d'activation direct */}
               {topOffer && (
                 <a
                   href={getPlatformUrl(topOffer.platform)}
