@@ -1,4 +1,6 @@
-import Link from 'next/link';
+'use client';
+
+import { useState } from 'react';
 import merchantsData from '../data/merchants.json';
 import platformsData from '../data/platforms.json';
 
@@ -15,106 +17,153 @@ interface Merchant {
   name: string;
   category: string;
   offers: Offer[];
-  stackable: boolean;
-  tip: string | null;
+  stackable?: boolean;
+  tip?: string | null;
 }
 
 export default function HomePage() {
-  const merchants: Merchant[] = merchantsData as Merchant[];
+  const [search, setSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Tous');
 
-  // Fonction pour obtenir le lien de parrainage d'une plateforme
+  const merchants = merchantsData as Merchant[];
+
+  // Liste unique des catégories
+  const categories = ['Tous', ...Array.from(new Set(merchants.map((m) => m.category)))];
+
+  // Lien de parrainage
   const getPlatformUrl = (platformName: string) => {
-    const platform = (platformsData as any[]).find(
-      (p) => p.name.toLowerCase() === platformName.toLowerCase()
+    const platforms = platformsData as Record<string, { url?: string; refUrl?: string }>;
+    const key = Object.keys(platforms).find(
+      (k) => k.toLowerCase() === platformName.toLowerCase()
     );
-    return platform ? platform.refUrl : '#';
+    return key ? (platforms[key].url || platforms[key].refUrl || '#') : '#';
   };
 
-  const getTypeBadge = (type: string) => {
-    switch (type) {
-      case 'bon_achat':
-        return <span className="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">Bon d'achat</span>;
-      case 'the_corner':
-        return <span className="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded">Banque (The Corner)</span>;
-      default:
-        return <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded">Cashback</span>;
-    }
+  // Code parrain
+  const getPlatformCode = (platformName: string) => {
+    const platforms = platformsData as Record<string, { code?: string }>;
+    const key = Object.keys(platforms).find(
+      (k) => k.toLowerCase() === platformName.toLowerCase()
+    );
+    return key ? platforms[key].code : null;
   };
+
+  // Filtre recherche + catégorie
+  const filteredMerchants = merchants.filter((m) => {
+    const matchesSearch = m.name.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = selectedCategory === 'Tous' || m.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-10">
-      <div className="text-center mb-10">
+    <main className="max-w-5xl mx-auto px-4 py-8">
+      {/* En-tête */}
+      <div className="text-center mb-8">
         <h1 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-          Compare & Maximise ton Cashback
+          Maximise tes gains Cashback
         </h1>
-        <p className="mt-3 text-slate-600 text-lg">
-          Trouve la meilleure combinaison (Bons d'achat + Cashback + Primes) pour chaque enseigne.
+        <p className="mt-2 text-slate-600">
+          Trouve la meilleure astuce (bon d'achat ou cashback) pour tes enseignes du quotidien.
         </p>
       </div>
 
-      <div className="space-y-6">
-        {merchants.map((merchant) => {
-          // Trouver l'offre la plus haute
-          const sortedOffers = [...merchant.offers].sort((a, b) => b.rate - a.rate);
+      {/* Barre de recherche */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Rechercher une enseigne (ex : Carrefour, Fnac)..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full p-3.5 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800"
+        />
+      </div>
+
+      {/* Filtres par catégorie */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedCategory(cat)}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${
+              selectedCategory === cat
+                ? 'bg-blue-600 text-white'
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Grille des marchands */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {filteredMerchants.map((merchant) => {
+          const sortedOffers = [...(merchant.offers || [])].sort((a, b) => b.rate - a.rate);
           const topOffer = sortedOffers[0];
+          const topCode = topOffer ? getPlatformCode(topOffer.platform) : null;
 
           return (
             <div
               key={merchant.id}
-              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+              className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-                <div>
-                  <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
+              <div>
+                {/* Nom et Categorie */}
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-xl font-bold text-slate-800">{merchant.name}</h2>
+                  <span className="bg-slate-100 text-slate-600 text-xs px-2.5 py-1 rounded-full font-medium">
                     {merchant.category}
                   </span>
-                  <h2 className="text-2xl font-bold text-slate-800">{merchant.name}</h2>
                 </div>
-                <div className="text-right">
-                  <span className="text-xs text-slate-500 block">Jusqu'à</span>
-                  <span className="text-3xl font-black text-blue-600">
-                    {topOffer.rate}{topOffer.unit}
-                  </span>
-                </div>
-              </div>
 
-              {/* Astuce de cumul si disponible */}
-              {merchant.stackable && merchant.tip && (
-                <div className="mt-4 bg-amber-50 border-l-4 border-amber-400 p-3 text-sm text-amber-900 rounded-r-lg">
-                  <strong>💡 Astuce Cumul :</strong> {merchant.tip}
-                </div>
-              )}
+                {/* Astuce Cumul */}
+                {merchant.stackable && merchant.tip && (
+                  <div className="mb-4 bg-amber-50 border-l-4 border-amber-400 p-2.5 text-xs text-amber-900 rounded-r-lg">
+                    <strong>💡 Astuce :</strong> {merchant.tip}
+                  </div>
+                )}
 
-              {/* Liste des offres par plateforme */}
-              <div className="mt-4 space-y-3">
-                <h3 className="text-xs font-bold uppercase text-slate-400">Toutes les offres disponibles :</h3>
-                {merchant.offers.map((offer, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100 text-sm"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="font-semibold text-slate-700">{offer.platform}</span>
-                      {getTypeBadge(offer.type)}
-                      <span className="text-slate-500 text-xs hidden md:inline">{offer.label}</span>
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                      <span className="font-extrabold text-slate-900">
+                {/* Liste de toutes les offres */}
+                <div className="space-y-2 mb-4">
+                  {sortedOffers.map((offer, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-100"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-slate-700">{offer.platform}</span>
+                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-500">{offer.label}</span>
+                      </div>
+                      <span className="font-extrabold text-blue-600">
                         {offer.rate}{offer.unit}
                       </span>
-                      <a
-                        href={getPlatformUrl(offer.platform)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition"
-                      >
-                        Activer
-                      </a>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                {/* Code parrain */}
+                {topCode && (
+                  <p className="text-xs text-slate-500 mb-4">
+                    Code parrain :{' '}
+                    <code className="bg-slate-100 font-mono px-1.5 py-0.5 rounded text-slate-800 font-bold">
+                      {topCode}
+                    </code>
+                  </p>
+                )}
               </div>
+
+              {/* Bouton d'activation vers la meilleure plateforme */}
+              {topOffer && (
+                <a
+                  href={getPlatformUrl(topOffer.platform)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-xl text-xs text-center block transition"
+                >
+                  Activer l'offre chez {topOffer.platform}
+                </a>
+              )}
             </div>
           );
         })}
