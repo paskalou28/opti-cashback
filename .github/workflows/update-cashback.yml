@@ -21,9 +21,7 @@ jobs:
           node-version: '22'
 
       - name: Installation des dépendances
-        run: |
-          npm init -y
-          npm install cheerio
+        run: npm install
 
       - name: Exécution du scraper
         run: node scripts/scrape.js
