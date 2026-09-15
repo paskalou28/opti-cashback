@@ -11,12 +11,72 @@
   },
   {
     "id": "2",
-    "name": "Fnac",
+    "name": "Auchan",
+    "category": "Supermarché",
+    "bestOption": "Bon d'achat",
+    "rate": "3%",
+    "platform": "Joko",
+    "referralUrl": "https://joko.app.link",
+    "welcomeBonus": "3 € offerts"
+  },
+  {
+    "id": "3",
+    "name": "Fnac / Darty",
     "category": "High-Tech",
     "bestOption": "Cashback Web",
-    "rate": "6%",
+    "rate": "5%",
     "platform": "iGraal",
     "referralUrl": "https://fr.igraal.com",
     "welcomeBonus": "3 € offerts"
+  },
+  {
+    "id": "4",
+    "name": "Boulanger",
+    "category": "High-Tech",
+    "bestOption": "Bon d'achat",
+    "rate": "4%",
+    "platform": "eBuyClub",
+    "referralUrl": "https://www.ebuyclub.com",
+    "welcomeBonus": "5 € offerts"
+  },
+  {
+    "id": "5",
+    "name": "TotalEnergies",
+    "category": "Carburant",
+    "bestOption": "Carte cadeau",
+    "rate": "2%",
+    "platform": "Joko",
+    "referralUrl": "https://joko.app.link",
+    "welcomeBonus": "3 € offerts"
+  },
+  {
+    "id": "6",
+    "name": "Leroy Merlin",
+    "category": "Bricolage",
+    "bestOption": "Bon d'achat",
+    "rate": "2,5%",
+    "platform": "eBuyClub",
+    "referralUrl": "https://www.ebuyclub.com",
+    "welcomeBonus": "5 € offerts"
+  },
+  {
+    "id": "7",
+    "name": "Booking.com",
+    "category": "Voyage",
+    "bestOption": "Cashback Web",
+    "rate": "4%",
+    "platform": "iGraal",
+    "referralUrl": "https://fr.igraal.com",
+    "welcomeBonus": "3 € offerts"
+  },
+  {
+    "id": "8",
+    "name": "BoursoBank",
+    "category": "Banque",
+    "bestOption": "Prime Parrainage",
+    "rate": "Jusqu'à 150 €",
+    "platform": "BoursoBank",
+    "referralUrl": "https://www.boursobank.com",
+    "welcomeBonus": "80 € à 150 € offerts"
   }
 ]
