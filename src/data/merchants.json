@@ -2,32 +2,152 @@
   {
     "id": "carrefour",
     "name": "Carrefour",
-    "category": "Alimentation & Courses",
+    "category": "Alimentation",
     "offers": [
-      {
-        "platform": "eBuyClub",
-        "type": "bon_achat",
-        "label": "Bon d'achat en caisse / drive",
-        "rate": 4.5,
-        "unit": "%"
-      },
       {
         "platform": "BoursoBank",
         "type": "the_corner",
-        "label": "The Corner (Achat de bon)",
-        "rate": 5.0,
+        "label": "Bon d'achat The Corner",
+        "rate": 5,
+        "unit": "%"
+      },
+      {
+        "platform": "eBuyClub",
+        "type": "bon_achat",
+        "label": "Bon d'achat",
+        "rate": 4.5,
         "unit": "%"
       },
       {
         "platform": "iGraal",
         "type": "cashback",
-        "label": "Cashback en ligne",
-        "rate": 2.0,
+        "label": "Cashback Drive",
+        "rate": 2,
         "unit": "%"
       }
     ],
     "stackable": true,
-    "tip": "Cumule le bon d'achat BoursoBank ou eBuyClub avec ton cashback sur le drive Carrefour !"
+    "tip": "Achetez des bons d'achat Carrefour sur BoursoBank (The Corner) ou eBuyClub avant de faire vos courses en ligne ou en caisse."
+  },
+  {
+    "id": "auchan",
+    "name": "Auchan",
+    "category": "Alimentation",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "e-leclerc",
+    "name": "E.Leclerc",
+    "category": "Alimentation",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "intermarche",
+    "name": "Intermarché",
+    "category": "Alimentation",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "monoprix",
+    "name": "Monoprix",
+    "category": "Alimentation",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
   },
   {
     "id": "fnac",
@@ -35,29 +155,292 @@
     "category": "High-Tech & Culture",
     "offers": [
       {
+        "platform": "BoursoBank",
+        "type": "the_corner",
+        "label": "Carte cadeau",
+        "rate": 6,
+        "unit": "%"
+      },
+      {
         "platform": "eBuyClub",
         "type": "bon_achat",
-        "label": "Carte cadeau remisée",
-        "rate": 5.0,
+        "label": "Bon d'achat",
+        "rate": 5,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback web",
+        "rate": 3.5,
+        "unit": "%"
+      }
+    ],
+    "stackable": true,
+    "tip": "Cumulez les cartes cadeaux eBuyClub ou BoursoBank avec le cashback iGraal lors de vos commandes sur le site web."
+  },
+  {
+    "id": "darty",
+    "name": "Darty",
+    "category": "High-Tech & Culture",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
         "unit": "%"
       },
       {
         "platform": "iGraal",
         "type": "cashback",
         "label": "Cashback classique",
-        "rate": 3.0,
+        "rate": 2.5,
         "unit": "%"
       },
       {
-        "platform": "Poulpeo",
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "boulanger",
+    "name": "Boulanger",
+    "category": "High-Tech & Culture",
+    "offers": [
+      {
+        "platform": "eBuyClub",
         "type": "cashback",
         "label": "Cashback classique",
-        "rate": 3.5,
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "cdiscount",
+    "name": "Cdiscount",
+    "category": "E-Commerce",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "category": "E-Commerce",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "leroy-merlin",
+    "name": "Leroy Merlin",
+    "category": "Bricolage & Maison",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "bon_achat",
+        "label": "Bon d'achat",
+        "rate": 4,
+        "unit": "%"
+      },
+      {
+        "platform": "Widilo",
+        "type": "cashback",
+        "label": "Cashback en ligne",
+        "rate": 2.5,
         "unit": "%"
       }
     ],
     "stackable": true,
-    "tip": "Paye tes achats en ligne Fnac avec une carte cadeau eBuyClub achetée au préalable pour cumuler les réductions."
+    "tip": "Achetez vos bons d'achat sur eBuyClub avant d'effectuer vos achats en magasin ou en ligne."
+  },
+  {
+    "id": "castorama",
+    "name": "Castorama",
+    "category": "Bricolage & Maison",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "brico-depot",
+    "name": "Brico Dépôt",
+    "category": "Bricolage & Maison",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "ikea",
+    "name": "IKEA",
+    "category": "Bricolage & Maison",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "maisons-du-monde",
+    "name": "Maisons du Monde",
+    "category": "Bricolage & Maison",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
   },
   {
     "id": "decathlon",
@@ -65,17 +448,287 @@
     "category": "Sport",
     "offers": [
       {
-        "platform": "Widilo",
-        "type": "cashback",
-        "label": "Cashback en ligne",
-        "rate": 4.0,
-        "unit": "%"
-      },
-      {
         "platform": "eBuyClub",
         "type": "bon_achat",
         "label": "Bon d'achat",
-        "rate": 3.5,
+        "rate": 4,
+        "unit": "%"
+      },
+      {
+        "platform": "Widilo",
+        "type": "cashback",
+        "label": "Cashback en ligne",
+        "rate": 3,
+        "unit": "%"
+      }
+    ],
+    "stackable": true,
+    "tip": "Utilisez un bon d'achat remisé eBuyClub combiné à une activation du cashback sur Widilo."
+  },
+  {
+    "id": "intersport",
+    "name": "Intersport",
+    "category": "Sport",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "nike",
+    "name": "Nike",
+    "category": "Sport",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "sephora",
+    "name": "Sephora",
+    "category": "Beauté & Santé",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "nocibe",
+    "name": "Nocibé",
+    "category": "Beauté & Santé",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "booking",
+    "name": "Booking.com",
+    "category": "Voyage",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "sncf-connect",
+    "name": "SNCF Connect",
+    "category": "Voyage",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "airbnb",
+    "name": "Airbnb",
+    "category": "Voyage",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "zalando",
+    "name": "Zalando",
+    "category": "Mode",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
+        "unit": "%"
+      }
+    ],
+    "stackable": false,
+    "tip": null
+  },
+  {
+    "id": "kiabi",
+    "name": "Kiabi",
+    "category": "Mode",
+    "offers": [
+      {
+        "platform": "eBuyClub",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 3,
+        "unit": "%"
+      },
+      {
+        "platform": "iGraal",
+        "type": "cashback",
+        "label": "Cashback classique",
+        "rate": 2.5,
+        "unit": "%"
+      },
+      {
+        "platform": "Joko",
+        "type": "cashback",
+        "label": "Cashback automatique",
+        "rate": 2,
         "unit": "%"
       }
     ],
